@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Courier;
+use App\Models\Customer;
 use App\Models\Order;
+use App\Models\PaymentMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +21,10 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'customer_id' => Customer::factory(),
+            'payment_method_id' => PaymentMethod::factory(),
+            'courier_id' => Courier::factory(),
+            'status' => fake()->randomElement(['menunggu', 'diproses', 'dikirim', 'selesai']),
         ];
     }
 }

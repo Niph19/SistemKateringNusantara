@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Courier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Model>
+ * @extends Factory<Courier>
  */
-class MetodePembayaranFactory extends Factory
+class CourierFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,8 @@ class MetodePembayaranFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'phone' => fake()->numerify('08##########'),
         ];
     }
 }

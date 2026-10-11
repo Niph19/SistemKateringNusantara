@@ -2,14 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\PaymentMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Model>
+ * @extends Factory<PaymentMethod>
  */
-class KurirFactory extends Factory
+class PaymentMethodFactory extends Factory
 {
+    private const NAMES = ['Tunai', 'Transfer Bank', 'QRIS'];
+
     /**
      * Define the model's default state.
      *
@@ -18,7 +20,7 @@ class KurirFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->randomElement(self::NAMES),
         ];
     }
 }

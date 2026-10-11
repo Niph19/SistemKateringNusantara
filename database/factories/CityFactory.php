@@ -18,7 +18,7 @@ class CityFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama_kota' => fake()->words(1, true),
+            'name' => fake()->unique()->city(),
         ];
     }
 }
