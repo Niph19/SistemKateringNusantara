@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('couriers', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kurir');
-            $table->string('nomor_telepon', 15);
+            $table->string('name');
+            $table->string('phone', 20);
             $table->timestamps();
         });
     }

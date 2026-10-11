@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained('payment_methods')->onDelete('cascade');
-            $table->foreignId('courier_id')->constrained('couriers')->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('payment_method_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('courier_id')->constrained()->cascadeOnDelete();
             $table->enum('status', ['menunggu', 'diproses', 'dikirim', 'selesai'])->default('menunggu');
             $table->timestamps();
         });
