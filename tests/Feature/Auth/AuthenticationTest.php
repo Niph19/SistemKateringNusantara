@@ -17,7 +17,21 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
+    $response->assertRedirect(route('profile.edit'));
+    $this->get(route('profile.edit'))->assertOk();
+});
+
+test('admins can authenticate and are redirected to the dashboard', function () {
+    $user = User::factory()->admin()->create();
+
+    $response = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $this->assertAuthenticated();
     $response->assertRedirect(route('dashboard', absolute: false));
+    $this->get(route('dashboard'))->assertOk();
 });
 
 test('users can not authenticate with invalid password', function () {
@@ -37,5 +51,5 @@ test('users can logout', function () {
     $response = $this->actingAs($user)->post('/logout');
 
     $this->assertGuest();
-    $response->assertRedirect('/');
+    $response->assertRedirect(route('login'));
 });

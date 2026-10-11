@@ -42,15 +42,15 @@ Sistem admin Rasa Nusantara untuk mengelola data operasional katering. Dashboard
 
    Halaman dashboard tersedia di `/dashboard`, sedangkan pengelolaan data tersedia di `/admin`. Keduanya hanya dapat diakses pengguna dengan email terverifikasi dan peran `admin`.
 
-   ### Menyiapkan akses admin
+### Menyiapkan akses admin
 
-   Registrasi pengguna baru selalu mendapat peran `customer`; peran tidak diambil dari masukan formulir. Setelah mendaftarkan akun dan memverifikasi email, berikan akses admin melalui:
+Registrasi pengguna baru selalu mendapat peran `customer`; peran tidak diambil dari masukan formulir. Setelah mendaftarkan akun dan memverifikasi email, berikan akses admin melalui:
 
-   ```bash
-   php artisan app:promote-user-to-admin alamat@emailanda
-   ```
+```bash
+php artisan app:promote-user-to-admin alamat@emailanda
+```
 
-   Perintah hanya mengubah peran akun yang sudah ada. Jangan memberikan akses admin kepada akun yang tidak dipercaya.
+Perintah hanya mengubah peran akun yang sudah ada. Jangan memberikan akses admin kepada akun yang tidak dipercaya. Pengguna customer tetap dapat login dan diarahkan ke halaman profil; akses dashboard pesanan dan CRUD tetap khusus admin.
 
 ## Skema dan data contoh
 

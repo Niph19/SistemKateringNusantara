@@ -1,3 +1,161 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   BATIK LEGAM — Custom CSS
+   Sistem Katering Nusantara | Rasa Nusantara
+   ============================================================ */
+
+/* --- Base Reset ------------------------------------------ */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply font-sans antialiased;
+        background-color: #f7f1e8; /* legam-50 */
+    }
+}
+
+/* --- Komponen Custom Batik Legam ------------------------- */
+@layer components {
+
+    /* Aksen garis emas dekoratif — digunakan di header/card */
+    .batik-border-top {
+        border-top: 3px solid #f0b429;
+    }
+
+    .batik-border-left {
+        border-left: 4px solid #f0b429;
+    }
+
+    /* Divider motif kawung — elemen dekoratif horizontal */
+    .batik-divider {
+        @apply relative flex items-center my-4;
+    }
+    .batik-divider::before,
+    .batik-divider::after {
+        content: '';
+        @apply flex-1 border-t;
+        border-color: #f0b429;
+        opacity: 0.35;
+    }
+    .batik-divider span {
+        @apply px-3 text-xs font-semibold tracking-widest uppercase;
+        color: #f0b429;
+    }
+
+    /* Card bergaya Batik Legam (dark) */
+    .batik-card {
+        @apply rounded-xl border overflow-hidden;
+        background-color: #2a2218;
+        box-shadow: 0 4px 14px 0 rgba(26, 22, 16, 0.40);
+        border-color: rgba(240, 180, 41, 0.18);
+    }
+
+    /* Card untuk area konten utama (background terang) */
+    .card-nusantara {
+        @apply rounded-xl border bg-white overflow-hidden;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07);
+        border-color: #e8d9c4;
+    }
+
+    /* Badge status pesanan */
+    .badge-menunggu {
+        @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-medium;
+        background-color: #e8d9c4;
+        color: #3d3224;
+    }
+    .badge-diproses {
+        @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-medium;
+        background-color: #fcedb8;
+        color: #6b4500;
+    }
+    .badge-dikirim {
+        @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-medium;
+        background-color: #dbeafe;
+        color: #1e40af;
+    }
+    .badge-selesai {
+        @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-medium;
+        background-color: #dcfce7;
+        color: #166534;
+    }
+
+    /* Pola dekoratif kawung untuk header section */
+    .batik-header-bg {
+        background-color: #1a1610;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f0b429' fill-opacity='0.07'%3E%3Cellipse cx='20' cy='5' rx='4' ry='3'/%3E%3Cellipse cx='20' cy='35' rx='4' ry='3'/%3E%3Cellipse cx='5' cy='20' rx='3' ry='4'/%3E%3Cellipse cx='35' cy='20' rx='3' ry='4'/%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Pola dekoratif parang untuk navbar */
+    .batik-navbar-bg {
+        background-color: #1a1610;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f0b429' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M0 30 Q15 15 30 30 Q45 45 60 30'/%3E%3Cpath d='M0 10 Q15-5 30 10 Q45 25 60 10'/%3E%3Cpath d='M0 50 Q15 35 30 50 Q45 65 60 50'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Ornamen segitiga emas pojok card */
+    .batik-corner-ornament {
+        @apply absolute top-0 right-0 w-0 h-0;
+        border-style: solid;
+        border-width: 0 28px 28px 0;
+        border-color: transparent #f0b429 transparent transparent;
+    }
+
+    /* Tabel bergaya Batik Legam */
+    .table-legam thead th {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider;
+        background-color: #2a2218;
+        color: #f0b429;
+    }
+    .table-legam tbody tr {
+        @apply border-t transition-colors duration-100;
+        border-color: #e8d9c4;
+    }
+    .table-legam tbody tr:hover {
+        background-color: #f7f1e8;
+    }
+    .table-legam tbody td {
+        @apply px-4 py-3 text-sm align-top;
+        color: #3d3224;
+    }
+
+    /* Input field bergaya Batik Legam */
+    .input-legam {
+        @apply block w-full rounded-lg border bg-white text-sm transition-colors duration-150;
+        color: #1a1610;
+        border-color: #c9ae92;
+        padding: 0.5rem 0.75rem;
+        outline: none;
+    }
+    .input-legam:hover {
+        border-color: #a98d70;
+    }
+    .input-legam:focus {
+        border-color: #f0b429;
+        box-shadow: 0 0 0 3px rgba(240, 180, 41, 0.15);
+    }
+}
+
+/* --- Utilities tambahan ---------------------------------- */
+@layer utilities {
+
+    /* Teks dengan gradient emas */
+    .text-gradient-emas {
+        background: linear-gradient(135deg, #f5c842 0%, #e6a000 60%, #c98a00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Scrollbar tipis bergaya */
+    .scrollbar-thin {
+        scrollbar-width: thin;
+        scrollbar-color: #a87000 #e8d9c4;
+    }
+    .scrollbar-thin::-webkit-scrollbar        { width: 6px; height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track  { background: #e8d9c4; border-radius: 3px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb  { background: #a87000; border-radius: 3px; }
+}

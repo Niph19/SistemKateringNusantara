@@ -14,8 +14,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    if (! auth()->check()) {
+        return redirect()->route('login');
+    }
+
+    return redirect()->route(auth()->user()->isAdmin() ? 'dashboard' : 'profile.edit');
+})->name('home');
 
 Route::get('/dashboard', DashboardController::class)
     ->middleware(['auth', 'verified', 'can:manage-catering'])
